@@ -19,17 +19,7 @@ const {register} = props
                     </div>
                     <TextInput {...register('petBreed')} id="CatBreed" type="CatBreed" placeholder='"Cat Breed"' required shadow/>
                 </div>
-                {/*<div className="max-w-md">*/}
-                {/*    /!*<div className="mb-2 block">*!/*/}
-                {/*    /!*    <Label htmlFor="Cat In/Out" value="Inside or Outside"/>*!/*/}
-                {/*    /!*</div>*!/*/}
-                {/*    <Select id="Type of Cat" required>*/}
-                {/*        <option value={'Indoor/Outdoor'}>Indoor/Outdoor</option>*/}
-                {/*        <option value={'Inside'}>Inside</option>*/}
-                {/*        <option value={'Outside'}>Outside</option>*/}
-                {/*        <option value={'In & Out'}>In & Out</option>*/}
-                {/*    </Select>*/}
-                {/*</div>*/}
+
                 <div className="max-w-md">
                     <div className="mb-2 block">
                         <Label htmlFor="Personality" value="Personality of your cat"/>
