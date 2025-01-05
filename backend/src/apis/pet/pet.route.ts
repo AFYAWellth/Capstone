@@ -33,7 +33,7 @@ router.route('/petType/:petType').get(getPetByPetTypeController)
 router.route('/petName/:petName').get(getPetByPetNameController)
 router.route('/petPersonality/:petPersonality').get(getPetByPetPersonalityController)
 router.route('/:petId').put(updatePetController)
-router.route('/:petId').delete(deletePetController)
+router.route('/:petId').delete(isLoggedInController, deletePetController)
 router.route('/followers/:petFollowerId').get(getPetsByFollowersController)
 router.route('/followee/:petFolloweeId').get(getPetsByFolloweeController)
 

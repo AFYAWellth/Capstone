@@ -15,7 +15,7 @@ export default async function (props : PageProps<{postId:string}>) {
 
     }
     const comments = await fetchCommentsByPostId(postId)
-    console.log(comments)
+    //console.log(comments)
     let med = {width: 'w-1/3', position: 'left-1/3'};
     return (
 

@@ -63,6 +63,7 @@ export async function fetchFolloweePosts(followeePetId: string): Promise<Post[]>
 
 export async function preformCreatePost(post: Post): Promise<Status> {
     const headers = await setHeaders()
+
     return  fetch(`${process.env.REST_API_URL}/apis/post`, {
         method: "post",
         headers,
@@ -83,6 +84,7 @@ export async function postImage(image: FormData): Promise<Status> {
     const headers = new Headers()
 
     const session = await getSession()
+
     const authorization = session?.authorization
     if(authorization) {
         headers.append("authorization", authorization)

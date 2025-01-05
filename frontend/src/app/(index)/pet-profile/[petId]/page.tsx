@@ -30,7 +30,7 @@ export default async function ProfilePage(props:PageProps<{petId:string}>) {
     }
     const posts = await fetchPostsByPet(petId);
     const pet=await fetchPetById(petId);
-console.log(posts);
+//console.log(posts);
     let med = {width: 'w-1/3', position: 'right-1/3'};
     const currentPet = await getCurrentPet();
 

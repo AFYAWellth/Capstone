@@ -57,7 +57,7 @@ export default function () {
             if(data.petImageUrl) {
 
                 const response = await postImage(data.petImageUrl);
-                console.log(response)
+                //console.log(response)
                 if (response.status === 200) {
                     petImageUrl = response.message
                 } else {

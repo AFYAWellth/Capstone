@@ -14,7 +14,7 @@ import PetTab from "@/components/PetTab";
 export async function ConnectionsPanel() {
     const currentPet = await getCurrentPet();
     const connections = await fetchPetsByFolloweeController(currentPet.petId)
-    console.log(connections)
+    //console.log(connections)
     return(
         <>
             <div

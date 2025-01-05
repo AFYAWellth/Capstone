@@ -30,11 +30,12 @@ const router = useRouter();
     const fireServerAction = async (data: SignIn) => {
         try {
             const response = await preformSignIn(data)
+           // console.log('Response:', response);
 
 
             if(response.status === 200) {
                 reset()
-                router.push('choose-pet')
+                router.push('/choose-pet')
             }
             setStatus(response)
         } catch (error) {
@@ -42,6 +43,10 @@ const router = useRouter();
             console.error(error)
         }
     }
+
+
+
+
 
     const {register, handleSubmit, control, reset, formState: {errors}} = useForm<SignIn>({
         resolver: zodResolver(SignInProfileSchema),

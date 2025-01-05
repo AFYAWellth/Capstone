@@ -17,6 +17,7 @@ export default async function () {
 
     const session = await getSession();
     const currentPet = await getCurrentPet();
+    //console.log('Current Pet: ', currentPet);
 
     return (
         <>

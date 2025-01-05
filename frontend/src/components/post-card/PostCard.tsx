@@ -36,7 +36,7 @@ export async function PostCard(props: PostProps) {
        return acc
 
    }, {})
-    console.log(pet);
+    //console.log(pet);
 
 
 

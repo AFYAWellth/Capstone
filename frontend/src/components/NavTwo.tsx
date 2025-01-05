@@ -26,7 +26,7 @@ export function NavTwo(props :Props) {
         const handler = (e: MouseEvent) => {
             if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
                 setOpen(false);
-                console.log(menuRef.current);
+                //console.log(menuRef.current);
             }
         };
 

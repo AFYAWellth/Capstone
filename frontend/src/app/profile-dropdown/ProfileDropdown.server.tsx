@@ -17,6 +17,7 @@ export async function ProfileDropdownServer(props: Props) {
         return <></>
     }
     const profile = session.profile;
+   // console.log(profile);
 
     const pets = await fetchPetsByProfileID(profile.profileId)
     const currentPet = await getCurrentPet()

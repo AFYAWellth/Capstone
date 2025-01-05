@@ -6,6 +6,7 @@ export async function setHeaders() {
     const headers = new Headers()
 
     const session = await getSession()
+
     const authorization = session?.authorization
     if(authorization) {
         headers.append("authorization", authorization)

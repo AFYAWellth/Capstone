@@ -15,7 +15,9 @@ export async function preformSignIn(signIn: SignIn) {
 
     const authorization = response.headers.get("authorization")
 
+
     const cookie = response.headers.getSetCookie()
+
     const cookieJar = await cookies()
     const parseCookie = (str: string): Record<string, string> =>
         str.split(';') // Split the string into individual cookie parts
@@ -46,3 +48,6 @@ export async function preformSignIn(signIn: SignIn) {
     })
 
 }
+
+
+
