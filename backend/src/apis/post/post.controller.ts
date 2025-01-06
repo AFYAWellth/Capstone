@@ -22,7 +22,7 @@ export async function createPostController(request: Request, response: Response)
         if (!validationResult.success) {
             return zodErrorResponse(response, validationResult.error)
         }
-
+        console.log(validationResult.data)
         const {postCaption, postImageUrl, postPetId} = validationResult.data
 
         // To Do: Get PetModel by PetModel ID, make sure pet profileId matches profileId in Session
@@ -118,7 +118,53 @@ export async function getPostByPostIdController (request: Request, response: Res
 }
 
 
-export async function deletePostByPostIdController (request: Request, response: Response): Promise<Response<Status>> {
+// export async function deletePostByPostIdController (request: Request, response: Response): Promise<Response<Status>> {
+//     try {
+//         const validationResult = z.string().uuid({message: 'Please provide a valid PostId'}).safeParse(request.params.postId)
+//
+//         if (!validationResult.success) {
+//             return zodErrorResponse(response, validationResult.error)
+//         }
+//
+//         const profile: PublicProfile = request.session.profile as PublicProfile
+//
+//         const profileId: string = profile.profileId as string
+//
+//         const postId = validationResult.data
+//
+//         const post = await selectPostByPostId(postId)
+//         if (!post) {
+//             return response.json({
+//                 status: 403,
+//                 message: 'No post with this ID',
+//                 data: null
+//             })
+//         }
+//         const pet = await selectPetByPetId(post.postPetId)
+//
+//         if (pet?.petProfileId !== profileId) {
+//             return response.json({
+//                 status: 403,
+//                 message: 'You are not allowed to delete this pets post,',
+//                 data: null
+//             })
+//         }
+//
+//         const result = await deletePostByPostId(postId)
+//
+//         return response.json({status: 200, message: "You did it!", data: null})
+//
+//
+//     } catch (error) {
+//         return response.json({
+//             status: 500,
+//             message: '',
+//             data: []
+//         })
+//     }
+// }
+
+export async function deletePostByPostIdController(request: Request, response: Response): Promise<Response<Status>> {
     try {
         const validationResult = z.string().uuid({message: 'Please provide a valid PostId'}).safeParse(request.params.postId)
 
@@ -127,9 +173,7 @@ export async function deletePostByPostIdController (request: Request, response: 
         }
 
         const profile: PublicProfile = request.session.profile as PublicProfile
-
         const profileId: string = profile.profileId as string
-
         const postId = validationResult.data
 
         const post = await selectPostByPostId(postId)
@@ -145,24 +189,32 @@ export async function deletePostByPostIdController (request: Request, response: 
         if (pet?.petProfileId !== profileId) {
             return response.json({
                 status: 403,
-                message: 'You are not allowed to delete this pets post,',
+                message: 'You are not allowed to delete this pets post.',
                 data: null
             })
         }
 
         const result = await deletePostByPostId(postId)
 
-        return response.json({status: 200, message: "You did it!", data: null})
+        if (!result) {
+            return response.status(500).json({
+                status: 500,
+                message: 'Failed to delete post',
+                data: null
+            })
+        }
 
-
+        // Return 204 No Content on successful deletion
+        return response.status(204).send();
     } catch (error) {
         return response.json({
             status: 500,
-            message: '',
+            message: 'Server Error',
             data: []
         })
     }
 }
+
 
 export async function createPostWithAiController(request: Request, response: Response): Promise<Response | undefined> {
     try {
