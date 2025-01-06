@@ -1,3 +1,4 @@
+
 import ProfileTab from "@/components/ProfileTab";
 import {PostCard} from "@/components/post-card/PostCard";
 import {IoMdNotificationsOutline} from "react-icons/io";
@@ -27,18 +28,18 @@ export default async function HomePage() {
     const posts = await fetchAllPosts();
 
 
-    const profiles = [
-        {profileId: "1", imageUrl: "https://picsum.photos/400", profileName: "Mittens"},
-        {profileId: "2", imageUrl: "https://picsum.photos/200", profileName: "Ruffles"},
-        {profileId: "3", imageUrl: "https://picsum.photos/300", profileName: "Clancy"},
-        {profileId: "4", imageUrl: "https://picsum.photos/500", profileName: "Wiley"},
-        {profileId: "5", imageUrl: "https://picsum.photos/100", profileName: "Lemmy"},
-
-    ]
+    // const profiles = [
+    //     {profileId: "1", imageUrl: "https://picsum.photos/400", profileName: "Mittens"},
+    //     {profileId: "2", imageUrl: "https://picsum.photos/200", profileName: "Ruffles"},
+    //     {profileId: "3", imageUrl: "https://picsum.photos/300", profileName: "Clancy"},
+    //     {profileId: "4", imageUrl: "https://picsum.photos/500", profileName: "Wiley"},
+    //     {profileId: "5", imageUrl: "https://picsum.photos/100", profileName: "Lemmy"},
+    //
+    // ]
     let med = {width: 'w-1/3', position: 'right-1/3'};
 
-    const likes = await getLikesByPostId('b847f5ce-2939-4c12-93ba-6badbe15be0e')
-console.log(likes)
+    //const likes = await getLikesByPostId('b847f5ce-2939-4c12-93ba-6badbe15be0e')
+//console.log(likes)
 
     return (
         <>

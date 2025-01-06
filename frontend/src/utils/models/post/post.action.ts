@@ -142,6 +142,22 @@ export async function fetchPost(postId: string): Promise<Post | null> {
     return PostSchema.nullable().parse(data)
 }
 
+export async function deletePost(postId: string): Promise<boolean> {
+    const headers = await setHeaders(); // Assuming setHeaders() handles authentication/authorization, etc.
+
+    const response = await fetch(`${process.env.REST_API_URL}/apis/post/${postId}`, {
+        method: "DELETE",
+        headers
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to delete the post');
+    }
+
+    // If the server responds with a 204 status (No Content), this indicates success.
+    return response.status === 204;
+}
+
 export async function fetchPostsByPet(petId:string): Promise<Post[]> {
     const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/post/petId/${petId}`,{ //why is data in curly braces? destructure or obj?
         method: "get",
