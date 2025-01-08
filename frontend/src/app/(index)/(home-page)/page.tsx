@@ -1,12 +1,4 @@
-import ProfileTab from "@/components/ProfileTab";
 import {PostCard} from "@/components/post-card/PostCard";
-import {IoMdNotificationsOutline} from "react-icons/io";
-import {GoPeople} from "react-icons/go";
-import {FiHome} from "react-icons/fi";
-import {IoMdSearch} from "react-icons/io";
-import {FaRegBookmark} from "react-icons/fa6";
-import {CiBookmark} from "react-icons/ci";
-import Searchbar from "@/components/Searchbar";
 import {NavTwo} from "@/components/NavTwo";
 import {fetchAllPosts} from "@/utils/models/post/post.action";
 import {LeftSideBar} from "@/components/LeftSideBar";
@@ -38,7 +30,7 @@ export default async function HomePage() {
     let med = {width: 'w-1/3', position: 'right-1/3'};
 
     const likes = await getLikesByPostId('b847f5ce-2939-4c12-93ba-6badbe15be0e')
-console.log(likes)
+    console.log(likes)
 
     return (
         <>
@@ -73,7 +65,7 @@ console.log(likes)
                     </div>
 
                 </div>
-<ConnectionsPanel />
+                <ConnectionsPanel />
 
             </div>
 
