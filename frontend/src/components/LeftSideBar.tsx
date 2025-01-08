@@ -2,7 +2,6 @@
 import Link from "next/link";
 import {FiHome} from "react-icons/fi";
 import {IoMdNotificationsOutline, IoMdSearch} from "react-icons/io";
-import {GoPeople} from "react-icons/go";
 import {CiBookmark} from "react-icons/ci";
 import {getCurrentPet} from "@/app/profile-dropdown/switch-pet.action";
 import { BsPeople } from "react-icons/bs";
@@ -57,31 +56,31 @@ export async function LeftSideBar() {
                 </Link>
 
                 <Link href={'/save-post'}>
-                <div className="left flex gap-28 items-center w-5/6 m-6 pl-10 cursor-pointer"><CiBookmark
-                    className={"min-h-10 min-w-10"}/><p className="hidden lg:block text-2xl">Bookmarks</p>
-                </div>
+                    <div className="left flex gap-28 items-center w-5/6 m-6 pl-10 cursor-pointer"><CiBookmark
+                        className={"min-h-10 min-w-10"}/><p className="hidden lg:block text-2xl">Bookmarks</p>
+                    </div>
                 </Link>
 
                 <Link href={'/create-post'}>
-                <div className="flex flex-col pr-40">
-                    <button
-                        className="bg-themeNavbar text-black ml-32 border-2 border-black w-28 rounded-lg p-2 mt-12 self-center">Post
-                    </button>
-                </div>
+                    <div className="flex flex-col pr-40">
+                        <button
+                            className="bg-themeNavbar text-black ml-32 border-2 border-black w-28 rounded-lg p-2 mt-12 self-center">Post
+                        </button>
+                    </div>
                 </Link>
 
 
                 <Link href={'/sign-in'}>
-                <div className="flex flex-col pr-40">
+                    <div className="flex flex-col pr-40">
                         <button
                             className="bg-themeNavbar text-black ml-32 border-2 border-black w-28 rounded-lg p-2 mt-12 self-center">Sign
                             out
                         </button>
                     </div>
                 </Link>
-                </div>
+            </div>
 
         </>
 
-)
+    )
 }

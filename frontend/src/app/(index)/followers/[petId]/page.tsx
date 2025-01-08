@@ -1,11 +1,3 @@
-import ProfileTab from "@/components/ProfileTab";
-import {PostCard} from "@/components/post-card/PostCard";
-import {IoMdNotificationsOutline} from "react-icons/io";
-import {GoPeople} from "react-icons/go";
-import {FiHome} from "react-icons/fi";
-import {IoMdSearch} from "react-icons/io";
-import {CiBookmark} from "react-icons/ci";
-import Link from "next/link";
 import {LeftSideBar} from "@/components/LeftSideBar";
 import {PageProps} from "@/utils/interfaces/NextComponent";
 import {fetchPetsByFollowersController} from "@/utils/models/pet/pet.action";
@@ -15,13 +7,13 @@ import PetTab from "@/components/PetTab";
 
 
 export default async function (props:PageProps<{petId:string}>) {
-const params = await props.params
+    const params = await props.params
     const petId = params.petId
     const followers = await fetchPetsByFollowersController(petId)
 
 
 
-const profiles = [
+    const profiles = [
         {profileId: "1", imageUrl: "https://picsum.photos/400", profileName: "Mittens"},
         {profileId: "2", imageUrl: "https://picsum.photos/200", profileName: "Ruffles"},
         {profileId: "3", imageUrl: "https://picsum.photos/300", profileName: "Clancy"},
@@ -34,7 +26,7 @@ const profiles = [
     return (
         <>
             {/*    LEFT SIDE of the screen when in desktop view. This div is hidden when screen size small.  Display: flex when Md or larger*/}
-<LeftSideBar />
+            <LeftSideBar />
 
             {/*MOBILE VIEW. This div is hidden when screen size is Md or larger. Display: flex when Sm*/}
 
